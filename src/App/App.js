@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-Types';
 import SearchForm from '../Forms/SearchForm';
 import SchoolCardContainer from '../Containers/SchoolCardContainer';
 import { getAllSchools, isLoading, hasErrored } from '../actions';
@@ -35,7 +34,7 @@ export class App extends Component {
           <Route
           exact
           path="/"
-          render={() => <SchoolCardContainer displayType={"albums"} />}
+          render={() => <SchoolCardContainer  />}
         />
       </div>
     )
