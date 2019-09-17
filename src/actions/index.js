@@ -8,6 +8,11 @@ export const searchSchools = schools => ({
   schools
 });
 
+export const addSchools = schools => ({
+  type: 'ADD_SCHOOLS',
+  schools
+});
+
 export const selectSchools = schools => ({
   type: 'SELECT_SCHOOLS',
   schools
@@ -18,8 +23,8 @@ export const displaySchools = schools => ({
   schools
 });
 
-export const hasFailed = errorMsg => ({
-  type: 'HAS_FAILED',
+export const hasErrored = errorMsg => ({
+  type: 'HAS_ERRORED',
   errorMsg
 });
 

@@ -1,3 +1,8 @@
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
 }
@@ -21,6 +26,19 @@
 
 .App-link {
   color: #61dafb;
+}
+
+body {
+  background: url('/src/Traditional_brick_schoolhouse.jpg');
+  /* background: url('https://unsplash.com/photos/47gcGwUUHb0'); */
+  background-size: cover;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
 }
 
 @keyframes App-logo-spin {
