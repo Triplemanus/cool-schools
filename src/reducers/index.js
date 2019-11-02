@@ -4,7 +4,7 @@ import { errorMsg } from './errorMsg';
 import { allSchoolsReducer } from './getAllSchools';
 import { searchSchoolsReducer } from './searchSchools';
 import { selectSchoolsReducer } from './selectSchools';
-import { addSchoolsReducer } from './addSchoolsReducer';
+import { addSchools } from './addSchoolsReducer';
 
 export const rootReducer = combineReducers({
   error: errorMsg,
@@ -12,5 +12,5 @@ export const rootReducer = combineReducers({
   allSchoolsReducer,
   searchSchoolsReducer,
   selectSchoolsReducer,
-  addSchoolsReducer
+  addSchools
 });

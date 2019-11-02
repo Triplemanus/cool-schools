@@ -6,31 +6,41 @@ import { connect } from 'react-redux';
 
 export const SchoolCardContainer = ({ schools, error }) => {
 
-    // let school = schools;
-  let schoolCards;
-  schoolCards = schools.map(school => {
+  // let testSchool = {
+  //   schoolid: "080336006756"
+  // }
+
+console.log('schools value is: ', schools, error);
+let schoolCards;
+  (schools) ?  schoolCards = schools.schoolList.map(school => {
+    console.log('SCC_Map data: ', school);
     return (
-      <SchoolCard
-      school_id={school.schoolid}
-      key={school.schoolid}
-      school_name={school.schoolName}
-      phone={school.phone}
-      address={school.address}
-      distance={school.distance}
-      low_Grade={school.lowGrade}
-      high_Grade={school.highGrade}
-      level={school.level}
-      is_Charter={school.isCharterSchool}
-      is_Magnet={school.isMagnetSchool}
-      is_Private={school.isPrivate}
-      />
+        <SchoolCard
+        school_id={school.schoolid}
+        key={school.schoolid}
+        school_name={school.schoolName}
+        phone={school.phone}
+        address={school.address}
+        distance={school.distance}
+        low_Grade={school.lowGrade}
+        high_Grade={school.highGrade}
+        level={school.level}
+        is_Charter={school.isCharterSchool}
+        is_Magnet={school.isMagnetSchool}
+        is_Private={school.isPrivate}
+        />
     );
-  });
+  }):  schoolCards =  [];
+   return (
+     <section>
+       {schoolCards}
+     </section>
+   )
 };
 
-export const mapStateToProps = store => ({
-  schools: store.schools,
-  error: store.error
+export const mapStateToProps = state => ({
+  schools: state.schools,
+  error: state.error
 });
 
 export default connect(mapStateToProps)(SchoolCardContainer);

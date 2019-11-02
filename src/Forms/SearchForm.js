@@ -39,13 +39,14 @@ export class SearchForm extends Component {
       longLocation:  parseFloat(this.state.longLocation),
       maxDistance: parseInt(this.state.maxDistance)
     };
-    console.log('querySchools: ', querySchools);
+    console.log('querySchools in submit: ', querySchools);
     this.searchSchools(querySchools);
     this.clearInputs();
 
   }
 
   searchSchools = querySchools => {
+    console.log('querySchools in searchSchools: ', querySchools);
     fetchAllSchools(querySchools)
     .then(schools => {
       console.log('schools: ', schools);
@@ -70,7 +71,7 @@ export class SearchForm extends Component {
 
   render() {
     const { locState, level, latLocation, longLocation, maxDistance } = this.state;
-    console.log('state is : ', this.state);
+    console.log('SearchForm state is : ', this.state);
     return(
       <header>
         <h1>Search Form</h1>

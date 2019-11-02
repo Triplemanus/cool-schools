@@ -5,16 +5,16 @@ import { connect } from 'react-redux';
 import SearchForm from '../Forms/SearchForm';
 import SchoolCardContainer from '../Containers/SchoolCardContainer';
 import { getAllSchools, isLoading, hasErrored } from '../actions';
-
+import { fetchAllSchools } from '../apiCalls/apiCalls';
 import './App.css';
 
 export class App extends Component {
   componentDidMount = async () => {
     const { getAllSchools, isLoading, hasErrored} = this.props;
     try {
-      // const schools = await fetchAllSchools();
-      // console.log('schools is: ', schools);
-      // getAllSchools(schools);
+      const schools = await fetchAllSchools();
+      console.log('fetched schools is: ', schools);
+      getAllSchools(schools);
       isLoading(false);
     } catch ( {message} ){ 
       isLoading(false);
@@ -22,6 +22,7 @@ export class App extends Component {
     }
   }
 
+  // {this.state.schools && <Route exact path="/schools" render={() => <SchoolCardContainer  />}/>}
   render () {
     return (
       <div className="App">
@@ -30,19 +31,22 @@ export class App extends Component {
             <h1>Schoolhouses Rock!</h1>
             </div>
           </Link>
-          <Route exact path="/" render={() => <SearchForm />} />
-          <Route
-          exact
-          path="/"
-          render={() => <SchoolCardContainer  />}
-        />
+          <Route  path="/" render={() => <SearchForm />} />
+          <Link to={"/schools"}>
+            <section>
+              <p>All Schools</p>
+            </section>
+          </Link>
+          {<Route exact path="/schools" render={() => <SchoolCardContainer  />}/>}
       </div>
     )
   }
 };
 
-export const mapStateToProps = state => ({
-...state
+export const mapStateToProps = (state) => ({
+  
+// ...state
+schools: state.schools
 });
 
 export const mapDispatchToProps = dispatch => (

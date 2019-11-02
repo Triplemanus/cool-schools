@@ -3,7 +3,7 @@ import './SchoolCard.css';
 
 import { connect } from 'react-redux';
 
-const SchoolCard = ({
+export const SchoolCard = ({
   school_id,
   school_name,
   phone,
@@ -16,7 +16,7 @@ const SchoolCard = ({
   is_Magnet,
   is_Private
 }) => {
-
+console.log('SchoolCard has been summoned!');
   return (
     <div className="Card">
       <h2>Name: {school_name}</h2>
